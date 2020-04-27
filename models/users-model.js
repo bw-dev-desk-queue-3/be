@@ -4,12 +4,14 @@ const shortid = require("shortid");
 module.exports = {
   add,
   find,
+  findBy,
   findById,
 };
 
 function find() {
   return db("users").select(
     "id",
+    "_id",
     "first_name",
     "last_name",
     "username",
@@ -19,12 +21,15 @@ function find() {
     "cohort"
   );
 }
-
-async function add(user) {
-  const [id] = await db("users").insert({ id: shortid.generate(), ...user });
-  return await findById(id);
+function findBy(filter) {
+  return db("users").where(filter);
 }
 
-function findById(id) {
-  return db("users").where({ id });
+async function add(user) {
+  const [id] = await db("users").insert({ _id: shortid.generate(), ...user });
+  return db("users").where({ id }).first();
+}
+
+function findById(_id) {
+  return db("users").where({ _id });
 }

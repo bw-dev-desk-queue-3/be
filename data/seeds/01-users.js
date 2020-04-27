@@ -3,7 +3,7 @@ const shortid = require("shortid");
 exports.seed = function (knex) {
   return knex("users").insert([
     {
-      id: shortid.generate(),
+      _id: shortid.generate(),
       first_name: "admin",
       last_name: "admin",
       username: "admin",
@@ -13,7 +13,7 @@ exports.seed = function (knex) {
       cohort: "admin",
     },
     {
-      id: shortid.generate(),
+      _id: shortid.generate(),
       first_name: "Violet",
       last_name: "Smith",
       username: "violetsmith",
@@ -23,7 +23,7 @@ exports.seed = function (knex) {
       cohort: "Web 28",
     },
     {
-      id: shortid.generate(),
+      _id: shortid.generate(),
       first_name: "Kristi",
       last_name: "Wynn",
       username: "Phlin1939",
@@ -33,7 +33,7 @@ exports.seed = function (knex) {
       cohort: "Web 28",
     },
     {
-      id: shortid.generate(),
+      _id: shortid.generate(),
       first_name: "Michael",
       last_name: "Sledge",
       username: "Liis1980",
@@ -43,7 +43,7 @@ exports.seed = function (knex) {
       cohort: "Web 28",
     },
     {
-      id: shortid.generate(),
+      _id: shortid.generate(),
       first_name: "Willard",
       last_name: "Griffith",
       username: "Orromin",
