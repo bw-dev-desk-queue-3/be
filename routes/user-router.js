@@ -2,7 +2,9 @@ const router = require("express").Router();
 
 const Users = require("../models/users-model.js");
 
-router.get("/", async (req, res) => {
+const { auth, adminAuth } = require("../auth/withAuth.js");
+
+router.get("/", auth, async (req, res) => {
   try {
     const users = await Users.find();
     res.status(201).json(users);
@@ -11,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", adminAuth, async (req, res) => {
   try {
     const id = req.params.id;
     const user = await Users.findById(id);
@@ -21,15 +23,15 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  try {
-    let newUser = req.body;
+// router.post("/", async (req, res) => {
+//   try {
+//     let newUser = req.body;
 
-    const saved = await Users.add(newUser);
-    res.status(201).json(saved);
-  } catch (error) {
-    res.status(500).json({ errorMessage: error.message });
-  }
-});
+//     const saved = await Users.add(newUser);
+//     res.status(201).json(saved);
+//   } catch (error) {
+//     res.status(500).json({ errorMessage: error.message });
+//   }
+// });
 
 module.exports = router;
