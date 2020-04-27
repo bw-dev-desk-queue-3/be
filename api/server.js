@@ -14,7 +14,7 @@ server.use(express.json());
 server.use("/api/users", usersRouter);
 server.use("/api", authRouter);
 
-server.get("/", async (req, res) => {
+server.get("/", (req, res) => {
   res.status(200).json({ api: "winning" });
 });
 
