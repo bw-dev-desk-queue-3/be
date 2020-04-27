@@ -5,22 +5,21 @@ const jwt = require("jsonwebtoken");
 const Users = require("../models/users-model.js");
 const jwtKey = process.env.JWT_SECRET || "secret";
 
-router.post("/register", async (req, res) => {
-  try {
-    let userInfo = req.body;
+router.post("/register", (req, res) => {
+  let user = req.body;
+  const rounds = process.env.HASH_ROUNDS || 14;
 
-    const rounds = process.env.HASH_ROUNDS || 14;
+  const hash = bcrypt.hashSync(user.password, rounds);
 
-    const hash = bcrypt.hashSync(userInfo.password, rounds);
+  user.password = hash;
 
-    userInfo.password = hash;
-
-    const newUser = await Users.add(userInfo);
-
-    res.status(201).json(newUser);
-  } catch (error) {
-    res.status(500).json({ errorMessage: error.message });
-  }
+  Users.add(user)
+    .then((saved) => {
+      res.status(201).json(saved);
+    })
+    .catch((error) => {
+      res.status(500).json({ errorMessage: error.message });
+    });
 });
 
 router.post("/login", (req, res) => {
