@@ -1,4 +1,4 @@
-# Build Week Dev Desk Queue 3 Backend
+# Back-End for Dev Desk Queue
 
 ## Schema
 
