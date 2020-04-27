@@ -11,7 +11,6 @@ module.exports = {
 function find() {
   return db("users").select(
     "id",
-    "_id",
     "first_name",
     "last_name",
     "username",
@@ -26,10 +25,10 @@ function findBy(filter) {
 }
 
 async function add(user) {
-  const [id] = await db("users").insert({ _id: shortid.generate(), ...user });
+  const [id] = await db("users").insert(user, "id");
   return db("users").where({ id }).first();
 }
 
-function findById(_id) {
-  return db("users").where({ _id });
+function findById(id) {
+  return db("users").where({ id }).first();
 }
