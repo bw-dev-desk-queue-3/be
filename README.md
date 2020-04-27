@@ -9,7 +9,7 @@
 ```js
 {
   id: INT; // auto increments by database
-  _id: STRING; // unique ID - automatically set by database - used to query
+  //_id: STRING; // unique ID - automatically set by database - used to query - not being used currently **
   first_name: STRING; // not nullable - 128 max chars
   last_name: STRING; // not nullable - 128 max chars
   username: STRING; // not nullable , unique - 128 max chars
