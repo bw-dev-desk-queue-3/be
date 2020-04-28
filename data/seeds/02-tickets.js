@@ -1,7 +1,6 @@
 exports.seed = function (knex) {
   return knex("tickets").insert([
     {
-      id: 1,
       title: "GitHub issue",
       description: "Short description",
       category: "GitHub",
@@ -11,7 +10,6 @@ exports.seed = function (knex) {
       user_id: 2,
     },
     {
-      id: 2,
       title: "JavaScript issue",
       description: "Short description",
       category: "JavaScript",
@@ -21,7 +19,6 @@ exports.seed = function (knex) {
       user_id: 3,
     },
     {
-      id: 3,
       title: "React issue",
       description: "Short description",
       category: "React",
@@ -31,7 +28,6 @@ exports.seed = function (knex) {
       user_id: 4,
     },
     {
-      id: 4,
       title: "CSS issue",
       description: "Short description",
       category: "CSS",
@@ -41,7 +37,6 @@ exports.seed = function (knex) {
       user_id: 5,
     },
     {
-      id: 5,
       title: "HTML issue",
       description: "Short description",
       category: "HTML",
@@ -51,7 +46,6 @@ exports.seed = function (knex) {
       user_id: 4,
     },
     {
-      id: 6,
       title: "React problems",
       description: "Short description",
       category: "React",
