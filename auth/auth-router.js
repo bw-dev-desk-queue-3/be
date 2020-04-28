@@ -49,7 +49,7 @@ generateToken = (user) => {
   };
 
   const options = {
-    expiresIn: "1h",
+    expiresIn: "1d",
   };
 
   return jwt.sign(payload, jwtKey, options);
