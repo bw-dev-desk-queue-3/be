@@ -2,9 +2,9 @@ const router = require("express").Router();
 
 const Users = require("../models/users-model.js");
 
-const { auth, adminAuth } = require("../auth/withAuth.js");
+const { adminAuth } = require("../auth/withAuth.js");
 
-router.get("/", auth, async (req, res) => {
+router.get("/", adminAuth, async (req, res) => {
   try {
     const users = await Users.find();
     res.status(201).json(users);
