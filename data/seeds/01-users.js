@@ -1,4 +1,4 @@
-const shortid = require("shortid");
+// const shortid = require("shortid");
 
 exports.seed = function (knex) {
   return knex("users").insert([
