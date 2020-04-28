@@ -9,17 +9,9 @@ module.exports = {
 };
 
 function find() {
-  return db("users").select(
-    "id",
-    "first_name",
-    "last_name",
-    "username",
-    "password",
-    "email",
-    "is_admin",
-    "cohort"
-  );
+  return db("users");
 }
+
 function findBy(filter) {
   return db("users").where(filter);
 }
